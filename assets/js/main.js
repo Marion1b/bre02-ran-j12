@@ -24,7 +24,7 @@ function loadPalette(palette)
     // le code de l'étape 1 se passe ici
     let elements = document.querySelectorAll('header div')
     for(let i = 0; i<colors.length; i++){
-        elements[i].style.background = colors[i]
+        elements[i].style.backgroundColor = colors[i]
     }
 }
 
@@ -33,8 +33,21 @@ window.addEventListener("DOMContentLoaded", function(){
     loadPalette(["#22f6f3", "#3daf7e", "#ffffff", "#ec8236", "#a9a7ee", "#ecc606", "#f783f2", "#e89e80"]);
 
     // le code de l'étape 2 se passe ici
-
+    let elements = document.querySelectorAll('header div')
+    for(let i=0; i<elements.length; i++){
+        elements[i].addEventListener('click', function(event){
+            let elementColor = event.target.style.backgroundColor
+            selectColor(event)
+            console.log(getSelectedColor())
+        })
+    }
 
     // le code de l'étape 3 se passe ici
+    let mainDiv = document.querySelectorAll('main div')
+    for(let i=0; i<mainDiv.length; i++){
+        mainDiv[i].addEventListener('click', function(event){
+            console.log(mainDiv[i])
+        })
+    }
 
 });
