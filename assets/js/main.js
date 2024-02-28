@@ -16,23 +16,27 @@ function getSelectedColor()
 
     return null;
 }
-function loadPalette(palette)
+function loadPalette()
 {
-    let colors = palette;
 
     // le code de l'étape 1 se passe ici
     let elements = document.querySelectorAll('header div')
-    for(let i = 0; i<colors.length; i++){
-        elements[i].style.backgroundColor = colors[i]
+    let input = document.querySelectorAll('header div input')
+    for(let i = 0; i<input.length; i++){
+        elements[i].style.backgroundColor = input[i].value
     }
 }
 
 
 window.addEventListener("DOMContentLoaded", function(){
-    loadPalette(["#22f6f3", "#3daf7e", "#ffffff", "#ec8236", "#a9a7ee", "#ecc606", "#f783f2", "#e89e80",
-                "#7c00b5", "#659ea1", "#000000", "#8fcc00", "#8fcc00", "#ffb494", "#949dff", "#94d6ff"]);
-
+    loadPalette()
     // le code de l'étape 2 se passe ici
+    let input = document.querySelectorAll('header div input')
+    for(let i=0; i<input.length; i++){
+        input[i].addEventListener('input', function(){
+            loadPalette()
+        })
+    }
     let headerDiv = document.querySelectorAll('header div')
     for(let i=0; i<headerDiv.length; i++){
         headerDiv[i].addEventListener('click', function(event){
