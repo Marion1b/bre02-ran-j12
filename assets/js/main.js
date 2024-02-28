@@ -22,9 +22,10 @@ function loadPalette(palette)
     let colors = palette;
 
     // le code de l'étape 1 se passe ici
-    let header = document.querySelector('header')
-    let elements = header.querySelectorAll('div')
-    console.log(elements)
+    let elements = document.querySelectorAll('header div')
+    for(let i = 0; i<colors.length; i++){
+        elements[i].style.background = colors[i]
+    }
 }
 
 
