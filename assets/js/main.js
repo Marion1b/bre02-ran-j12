@@ -46,7 +46,8 @@ window.addEventListener("DOMContentLoaded", function(){
     let mainDiv = document.querySelectorAll('main div')
     for(let i=0; i<mainDiv.length; i++){
         mainDiv[i].addEventListener('click', function(event){
-            console.log(mainDiv[i])
+            let color = getSelectedColor(); 
+            event.target.style.backgroundColor = color
         })
     }
 
